@@ -1,0 +1,6 @@
+{
+  "name": "Bob",
+  "email": "hello@cypress.io",
+  "gender": "Female",
+  "product": ["Blackberry","Nokia Edge"]
+}
