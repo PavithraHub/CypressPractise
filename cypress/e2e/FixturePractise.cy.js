@@ -1,3 +1,4 @@
+import {HomePage} from "./Pages/HomePageRS.cy"
 describe('fixturePractise',()=>{
 
     //let userdata
@@ -78,7 +79,23 @@ describe('fixturePractise',()=>{
         //         cy.selectProduct(userdata.product).eq(i)
         //     }
 
-        
+
 
     })
+
+    it.only('validating full flow',()=>{
+        cy.visit('https://rahulshettyacademy.com/angularpractice/')
+
+        const homepage= new HomePage()
+
+        homepage.getName().type(userdata.name)
+        homepage.getName().should('have.attr','minlength','2')
+        homepage.getGender().select(userdata.gender)
+        homepage.getEntrepreneurRadioButton().should('be.disabled')
+        homepage.getTwoWayBindingTextBox().should('have.value',userdata.name)
+
+        homepage.getShopBtn().click()
+        
+    })
+    
 })

@@ -35,6 +35,7 @@ describe('AmazonSearch', () => {
     it.only('Add product to cart', () => {
         //cy.get('h2 .a-link-normal .a-size-medium.a-color-base.a-text-normal').eq(0).parent().invoke('removeAttr','target').click()
 
+        //clicking on a specific laptop and clicking on its title and making it open in same window
         cy.get('h2 .a-link-normal .a-size-medium.a-color-base.a-text-normal').each(($title,index,$list)=>{
             if($title.text().includes('Lenovo IdeaPad Slim 3'))
              {
@@ -45,10 +46,12 @@ describe('AmazonSearch', () => {
 
         })
 
+        //clicking on Add to cart button
         cy.get('#add-to-cart-button').click()
 
         cy.wait(5000)
 
+        //to check if Added to cart success message is displayed
         cy.get('#attachDisplayAddBaseAlert .a-size-medium-plus').should('contain.text','Added to Cart')
         
     })
