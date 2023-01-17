@@ -22,6 +22,26 @@ Cypress.Commands.add('selectProduct', (productName) => {
             }
         })
      })
+
+
+     Cypress.Commands.add('addComponent', (componentName) => { 
+        //clicking on drag data components
+        cy.get('div[data-text="Drag components here"]').click()
+        //clicking + button in parsys
+        cy.get('[title="Insert component"]').click()
+        //entering component
+        cy.get('input[placeholder="Enter Keyword"]').type(componentName).type('{enter}')
+        cy.get('.coral3-SelectList-group .coral3-SelectList-item').as('componentList')
+        cy.wait(4000)
+        cy.get('@componentList').each(($component)=>{
+            if($component.text()===componentName){
+                
+                cy.wrap($component).as('component')
+                cy.get('@component').click()
+                cy.wait(2000)
+            }
+        })
+     })
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

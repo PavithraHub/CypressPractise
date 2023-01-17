@@ -1,0 +1,22 @@
+{
+    "username": "admin",
+    "password": "admin",
+    "pagetemplate": "Hero Page",
+    "componentName": "Text",
+
+    "h1":
+    {
+        "fontweight": "900",
+        "textalign": "center",
+        "color":"rgb(39, 39, 39)",
+        "fontsize":"48px",
+        "lineheight": "62px"
+    },
+    "h2":
+    {
+        "fontweight": "700",
+        "lineheight": "24px",
+        "color":"rgb(39, 39, 39)",
+        "fontsize":"28px"
+    }
+}

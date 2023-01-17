@@ -1,4 +1,5 @@
 import {HomePage} from "./Pages/HomePageRS.cy"
+import { ProductPage } from "./Pages/ProductPageRS.cy"
 describe('fixturePractise',()=>{
 
     //let userdata
@@ -87,6 +88,7 @@ describe('fixturePractise',()=>{
         cy.visit('https://rahulshettyacademy.com/angularpractice/')
 
         const homepage= new HomePage()
+        const productpage = new ProductPage()
 
         homepage.getName().type(userdata.name)
         homepage.getName().should('have.attr','minlength','2')
@@ -95,6 +97,13 @@ describe('fixturePractise',()=>{
         homepage.getTwoWayBindingTextBox().should('have.value',userdata.name)
 
         homepage.getShopBtn().click()
+
+        userdata.product.forEach(element => {
+            cy.selectProduct(element)
+
+        })
+
+        productpage.getCheckOutBtn().click()
         
     })
     
